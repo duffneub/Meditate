@@ -16,7 +16,8 @@ extension Topic {
         isSubtopic: Bool = false,
         position: Int = 0,
         subtopics: [Topic] = [],
-        meditations: [UUID] = []
+        meditations: [UUID] = [],
+        color: Color = .init(hex: "#000000")
     ) -> Topic {
         .init(
             id: id,
@@ -25,6 +26,7 @@ extension Topic {
             isSubtopic: isSubtopic,
             position: position,
             subtopics: subtopics,
-            meditations: meditations)
+            meditations: meditations,
+            color: color)
     }
 }

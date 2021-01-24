@@ -8,48 +8,6 @@
 import Combine
 import Foundation
 
-struct Topic {
-    let id: UUID
-    let title: String
-    let isFeatured: Bool
-    var isSubtopic: Bool
-    private let position: Int
-    private let subtopics: [Topic]
-    private let meditations: [UUID]
-    
-    var numberOfMeditations: Int {
-        subtopics.map { $0.numberOfMeditations }.reduce(meditations.count, +)
-    }
-    
-    init(
-        id: UUID,
-        title: String,
-        isFeatured: Bool,
-        isSubtopic: Bool,
-        position: Int,
-        subtopics: [Topic],
-        meditations: [UUID]
-    ) {
-        self.id = id
-        self.title = title
-        self.isFeatured = isFeatured
-        self.isSubtopic = isSubtopic
-        self.position = position
-        self.subtopics = subtopics
-        self.meditations = meditations
-    }
-}
-
-extension Topic : Identifiable {}
-extension Topic : Equatable {}
-extension Topic : Comparable {
-    static func < (lhs: Topic, rhs: Topic) -> Bool {
-        lhs.position < rhs.position
-    }
-    
-    
-}
-
 protocol MeditationRepository {
 //    var meditationTopicsPublisher: AnyPublisher<[Topic], Error> { get }
     func fetchMeditationTopics() -> AnyPublisher<[Topic], Error>

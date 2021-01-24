@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct TopicListView : View {
-    private let topics: [Topic]
-    
-    init(topics: [Topic]) {
-        self.topics = topics
-    }
+    let topics: [Topic]
     
     var body: some View {
         ScrollView(.vertical) {
@@ -32,7 +28,7 @@ struct TopicCardView : View {
     
     var body : some View {
         HStack {
-            Color.red.frame(width: colorWidth)
+            Color(topic.color).frame(width: colorWidth)
             VStack(alignment: .leading) {
                 Text(topic.title)
                     .font(.headline)
@@ -40,7 +36,7 @@ struct TopicCardView : View {
                     .font(.caption2)
                     .foregroundColor(.secondary)
             }
-            .padding()
+            .padding(.vertical)
             Spacer()
         }
         .frame(maxWidth: .infinity)
@@ -58,28 +54,38 @@ struct TopicCardView : View {
     
 }
 
+extension Color {
+    init(_ topicColor: Topic.Color) {
+        self.init(
+            red: Double(topicColor.red) / 255.0,
+            green: Double(topicColor.green) / 255.0,
+            blue: Double(topicColor.blue) / 255.0)
+    }
+}
+
 struct TopicListView_Previews: PreviewProvider {
     static let topics: [Topic] = [
-        "Stress & Anxiety",
-        "Great for Beginners",
-        "Focus",
-        "Waking Up",
-        "Happiness",
-        "Relationships",
-        "Difficult Emotions",
-        "Advanced & Unguided",
-        "On the Go",
-        "Uncensored",
-        "Health"
-    ].enumerated().map { position, title in
+        ("Stress & Anxiety", Topic.Color(hex: "#507992")),
+        ("Great for Beginners", Topic.Color(hex: "#148EC0")),
+        ("Focus", Topic.Color(hex: "#406DA2")),
+        ("Waking Up", Topic.Color(hex: "#30B3D8")),
+        ("Happiness", Topic.Color(hex: "#5182DA")),
+        ("Relationships", Topic.Color(hex: "#9A5AAF")),
+        ("Difficult Emotions", Topic.Color(hex: "#616171")),
+        ("Advanced & Unguided", Topic.Color(hex: "#ACBEC3")),
+        ("On the Go", Topic.Color(hex: "#3EAC93")),
+        ("Uncensored", Topic.Color(hex: "#22222A")),
+        ("Health", Topic.Color(hex: "#599CC4"))
+    ].enumerated().map { position, tuple in
         Topic.init(
             id: UUID(),
-            title: title,
+            title: tuple.0,
             isFeatured: false,
             isSubtopic: false,
             position: position,
             subtopics: [],
-            meditations: (0..<38).map { _ in UUID() })}
+            meditations: (0..<38).map { _ in UUID() },
+            color: tuple.1)}
 
     static var previews: some View {
         NavigationView {
