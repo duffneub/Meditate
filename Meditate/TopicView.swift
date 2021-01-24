@@ -40,19 +40,13 @@ class TopicViewModel {
         
         var meditations: [Meditation] {
             [
-                .init(title: "Breathing to Release Pain", teacher: "Jeff Warren"),
-                .init(title: "Breathing to Release Pain", teacher: "Jeff Warren"),
-                .init(title: "Breathing to Release Pain", teacher: "Jeff Warren"),
-                .init(title: "Breathing to Release Pain", teacher: "Jeff Warren"),
-                .init(title: "Breathing to Release Pain", teacher: "Jeff Warren")
+                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 0),
+                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 0),
+                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 0),
+                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 0),
+                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 0)
             ]
         }
-    }
-    
-    struct Meditation : Identifiable {
-        let id = UUID()
-        let title: String
-        let teacher: String
     }
     
 }

@@ -54,6 +54,40 @@ class MeditateTests: XCTestCase {
     
     // MARK: - Get Meditations for Topic
     
+    func testMeditationsForTopic_shouldReturnMeditationsMatchingIDsOfTopicsMeditations() throws {
+        let meditationIds = (0..<10).map { _ in UUID() }
+        let meditations = meditationIds.map { Meditation.make(id: $0) }
+        repo.fetchMeditationsResult = .success(meditations)
+        
+        let topic = Topic.make(meditations: meditationIds)
+        
+        XCTAssertEqual(meditations, try await(sut.meditations(for: topic)))
+    }
+    
+    func testMeditationsForTopic_shouldCacheResults() throws {
+        let meditationIds = (0..<10).map { _ in UUID() }
+        let meditations = meditationIds.map { Meditation.make(id: $0) }
+        repo.fetchMeditationsResult = .success(meditations)
+        
+        let topic = Topic.make(meditations: meditationIds)
+        
+        XCTAssertEqual(meditations, try await(sut.meditations(for: topic)))
+        
+        repo.fetchMeditationsResult = .success([])
+        
+        XCTAssertEqual(meditations, try await(sut.meditations(for: topic)))
+    }
+    
+    func testMeditationsForTopic_shouldBeOrderedByPlayCountInDescendingOrder() throws {
+        let first = Meditation.make(playCount: 3)
+        let second = Meditation.make(playCount: 2)
+        let third = Meditation.make(playCount: 1)
+        
+        repo.fetchMeditationsResult = .success([second, third, first])
+        
+        let topic = Topic.make(meditations: [second, third, first].map { $0.id })
+        XCTAssertEqual([first, second, third], try await(sut.meditations(for: topic)))
+    }
     
     
     // MARK: - Helper Methods
@@ -84,12 +118,19 @@ class MeditateTests: XCTestCase {
 
 class MockMeditationRepo : MeditationRepository {
     var fetchMeditationsTopicResult: Result<[Topic], Error> = .success([])
+    var fetchMeditationsResult: Result<[Meditation], Error> = .success([])
     
     // MARK: - MeditationRepository
     
     func fetchMeditationTopics() -> AnyPublisher<[Topic], Error> {
         Future { promise in
             promise(self.fetchMeditationsTopicResult)
+        }.eraseToAnyPublisher()
+    }
+    
+    func fetchMeditations() -> AnyPublisher<[Meditation], Error> {
+        Future { promise in
+            promise(self.fetchMeditationsResult)
         }.eraseToAnyPublisher()
     }
 }

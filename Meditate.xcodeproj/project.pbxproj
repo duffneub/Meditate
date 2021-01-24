@@ -20,6 +20,8 @@
 		17C2EECA25BE13D900B89560 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEC925BE13D900B89560 /* ColorTests.swift */; };
 		17C2EECF25BE1CF700B89560 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EECE25BE1CF700B89560 /* Topic.swift */; };
 		17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EED325BE1ED400B89560 /* TopicView.swift */; };
+		17C2EED925BE2CAC00B89560 /* Meditation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EED825BE2CAC00B89560 /* Meditation.swift */; };
+		17C2EEDE25BE2CDA00B89560 /* Meditation+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		17C2EEC925BE13D900B89560 /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		17C2EECE25BE1CF700B89560 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		17C2EED325BE1ED400B89560 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		17C2EED825BE2CAC00B89560 /* Meditation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meditation.swift; sourceTree = "<group>"; };
+		17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meditation+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				17C2EED325BE1ED400B89560 /* TopicView.swift */,
 				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
 				17C2EECE25BE1CF700B89560 /* Topic.swift */,
+				17C2EED825BE2CAC00B89560 /* Meditation.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
 				17C2EE9025BDCD0000B89560 /* Info.plist */,
 				17C2EE8D25BDCD0000B89560 /* Preview Content */,
@@ -137,6 +142,7 @@
 				17C2EEBA25BDDB7400B89560 /* TopicTests.swift */,
 				17C2EEC925BE13D900B89560 /* ColorTests.swift */,
 				17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */,
+				17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */,
 				17C2EE9B25BDCD0000B89560 /* Info.plist */,
 			);
 			path = MeditateTests;
@@ -285,6 +291,7 @@
 				17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */,
 				17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */,
 				17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */,
+				17C2EED925BE2CAC00B89560 /* Meditation.swift in Sources */,
 				17C2EEB625BDCE7F00B89560 /* MeditationLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +304,7 @@
 				17C2EECA25BE13D900B89560 /* ColorTests.swift in Sources */,
 				17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */,
 				17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */,
+				17C2EEDE25BE2CDA00B89560 /* Meditation+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

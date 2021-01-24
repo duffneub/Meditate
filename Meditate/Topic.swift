@@ -41,6 +41,10 @@ struct Topic {
         self.color = color
     }
     
+    func includes(_ meditation: Meditation) -> Bool {
+        meditations.contains(meditation.id)
+    }
+    
     struct Color {
         let red: Int
         let green: Int
