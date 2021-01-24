@@ -40,6 +40,7 @@ struct Topic {
     }
 }
 
+extension Topic : Identifiable {}
 extension Topic : Equatable {}
 extension Topic : Comparable {
     static func < (lhs: Topic, rhs: Topic) -> Bool {
