@@ -13,6 +13,9 @@
 		17C2EE8F25BDCD0000B89560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C2EE8E25BDCD0000B89560 /* Preview Assets.xcassets */; };
 		17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE9925BDCD0000B89560 /* MeditateTests.swift */; };
 		17C2EEA525BDCD0000B89560 /* MeditateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEA425BDCD0000B89560 /* MeditateUITests.swift */; };
+		17C2EEB625BDCE7F00B89560 /* MeditationLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */; };
+		17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEBA25BDDB7400B89560 /* TopicTests.swift */; };
+		17C2EEC025BDDF9300B89560 /* Topic+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		17C2EEA025BDCD0000B89560 /* MeditateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C2EEA425BDCD0000B89560 /* MeditateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateUITests.swift; sourceTree = "<group>"; };
 		17C2EEA625BDCD0000B89560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationLibrary.swift; sourceTree = "<group>"; };
+		17C2EEBA25BDDB7400B89560 /* TopicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTests.swift; sourceTree = "<group>"; };
+		17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			children = (
 				17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */,
 				17C2EE8925BDCCFE00B89560 /* ContentView.swift */,
+				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
 				17C2EE9025BDCD0000B89560 /* Info.plist */,
 				17C2EE8D25BDCD0000B89560 /* Preview Content */,
@@ -116,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				17C2EE9925BDCD0000B89560 /* MeditateTests.swift */,
+				17C2EEBA25BDDB7400B89560 /* TopicTests.swift */,
+				17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */,
 				17C2EE9B25BDCD0000B89560 /* Info.plist */,
 			);
 			path = MeditateTests;
@@ -261,6 +270,7 @@
 			files = (
 				17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */,
 				17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */,
+				17C2EEB625BDCE7F00B89560 /* MeditationLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C2EEC025BDDF9300B89560 /* Topic+TestHelpers.swift in Sources */,
 				17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */,
+				17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
