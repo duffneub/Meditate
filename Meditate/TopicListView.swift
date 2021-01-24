@@ -33,7 +33,7 @@ struct TopicCardView : View {
                 Text(topic.title)
                     .font(.headline)
                 Text("\(topic.numberOfMeditations) Meditations")
-                    .font(.caption2)
+                    .font(.caption)
                     .foregroundColor(.secondary)
             }
             .padding(.vertical)

@@ -19,6 +19,7 @@
 		17C2EEC525BDE0C200B89560 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEC425BDE0C200B89560 /* TopicListView.swift */; };
 		17C2EECA25BE13D900B89560 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEC925BE13D900B89560 /* ColorTests.swift */; };
 		17C2EECF25BE1CF700B89560 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EECE25BE1CF700B89560 /* Topic.swift */; };
+		17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EED325BE1ED400B89560 /* TopicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		17C2EEC425BDE0C200B89560 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListView.swift; sourceTree = "<group>"; };
 		17C2EEC925BE13D900B89560 /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		17C2EECE25BE1CF700B89560 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		17C2EED325BE1ED400B89560 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */,
 				17C2EE8925BDCCFE00B89560 /* ContentView.swift */,
 				17C2EEC425BDE0C200B89560 /* TopicListView.swift */,
+				17C2EED325BE1ED400B89560 /* TopicView.swift */,
 				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
 				17C2EECE25BE1CF700B89560 /* Topic.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
@@ -279,6 +282,7 @@
 			files = (
 				17C2EEC525BDE0C200B89560 /* TopicListView.swift in Sources */,
 				17C2EECF25BE1CF700B89560 /* Topic.swift in Sources */,
+				17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */,
 				17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */,
 				17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */,
 				17C2EEB625BDCE7F00B89560 /* MeditationLibrary.swift in Sources */,

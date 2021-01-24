@@ -22,6 +22,8 @@ class MeditateTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    // MARK: - Get Meditation Topics
+    
     func testGetMeditationTopics_shouldOnlyIncludeFeaturedAndParentLevelTopics() throws {
         let topLevel = Topic.make()
         let subtopic = Topic.make(isSubtopic: true)
@@ -49,6 +51,10 @@ class MeditateTests: XCTestCase {
         XCTAssertEqual(second, topics[1])
         XCTAssertEqual(third, topics[2])
     }
+    
+    // MARK: - Get Meditations for Topic
+    
+    
     
     // MARK: - Helper Methods
     
