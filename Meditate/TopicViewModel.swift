@@ -10,11 +10,11 @@ import Foundation
 
 class TopicViewModel {
     private let topic: Topic
-    private let library: IMeditationLibrary
+    private let useCase: BrowseMeditationsUseCaseProtocol
     
-    init(_ topic: Topic, library: IMeditationLibrary) {
+    init(_ topic: Topic, useCase: BrowseMeditationsUseCaseProtocol) {
         self.topic = topic
-        self.library = library
+        self.useCase = useCase
     }
     
     var title: String {
@@ -27,10 +27,10 @@ class TopicViewModel {
     
     var meditationSections: [Section] {
         var sections = topic.subtopics.map {
-            Section($0, library: library)
+            Section($0, useCase: useCase)
         }
         if topic.hasMeditations {
-            sections.append(Section.generic(topic, library: library))
+            sections.append(Section.generic(topic, useCase: useCase))
         }
         return sections
     }
@@ -38,20 +38,20 @@ class TopicViewModel {
     class Section : ObservableObject, Identifiable {
         private let isGeneric: Bool
         private let topic: Topic
-        private let library: IMeditationLibrary
+        private let useCase: BrowseMeditationsUseCaseProtocol
         private var subscriptions = Set<AnyCancellable>()
         @Published var meditations: [Meditation] = []
         
         private var titleOverride: String?
         
-        init(_ topic: Topic, library: IMeditationLibrary) {
+        init(_ topic: Topic, useCase: BrowseMeditationsUseCaseProtocol) {
             self.isGeneric = false
             self.topic = topic
-            self.library = library
+            self.useCase = useCase
         }
         
-        static func generic(_ topic: Topic, library: IMeditationLibrary) -> Section {
-            let section = Section(topic, library: library)
+        static func generic(_ topic: Topic, useCase: BrowseMeditationsUseCaseProtocol) -> Section {
+            let section = Section(topic, useCase: useCase)
             section.titleOverride = "Meditations"
             
             return section
@@ -62,7 +62,7 @@ class TopicViewModel {
         }
         
         func loadMeditations() {
-            library.meditations(for: topic)
+            useCase.meditations(for: topic)
                 .receive(on: DispatchQueue.main)
                 .replaceError(with: [])
                 .assign(to: \.meditations, on: self)

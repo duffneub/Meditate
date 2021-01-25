@@ -11,10 +11,10 @@ import XCTest
 
 class MeditateTests: CombineTestCase {
     private let repo = MockMeditationRepo()
-    private var sut: MeditationLibrary!
+    private var sut: BrowseMeditationsUseCase!
 
     override func setUpWithError() throws {
-        sut = MeditationLibrary(repo: repo)
+        sut = BrowseMeditationsUseCase(repo: repo)
     }
 
     // MARK: - Get Meditation Topics

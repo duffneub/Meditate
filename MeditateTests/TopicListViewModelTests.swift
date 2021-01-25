@@ -11,14 +11,14 @@ import XCTest
 
 class TopicListViewModelTests: CombineTestCase {
     func testLoadMeditationTopics_shouldGetTopicsFromLibrary() throws {
-        let library = MockMeditationLibrary()
+        let useCase = MockBrowseMeditationsUseCase()
         let topics = (0..<10).map { _ in Topic.make() }
-        library.meditationTopicsResult = .success(topics)
-        let sut = TopicListViewModel(library: library)
+        useCase.meditationTopicsResult = .success(topics)
+        let sut = TopicListViewModel(useCase: useCase)
         
         sut.loadMeditationTopics()
         
-        XCTAssertTrue(library.didLoadMeditationTopics)
+        XCTAssertTrue(useCase.didLoadMeditationTopics)
         XCTAssertEqual(topics.count, (try await(sut.$topics.dropFirst().eraseToAnyPublisher())).count)
     }
 }

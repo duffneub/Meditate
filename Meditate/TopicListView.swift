@@ -82,11 +82,11 @@ extension Color {
 struct TopicListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TopicListView(.init(library: FakeMeditationLibrary()))
+            TopicListView(.init(useCase: FakeMeditationLibrary()))
         }
     }
     
-    class FakeMeditationLibrary : IMeditationLibrary {
+    class FakeMeditationLibrary : BrowseMeditationsUseCaseProtocol {
         private var topicsSubject = PassthroughSubject<[Topic], Error>()
         
         var meditationTopics: AnyPublisher<[Topic], Error> {

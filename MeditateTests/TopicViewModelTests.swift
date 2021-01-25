@@ -14,7 +14,7 @@ class TopicViewModelTests: XCTestCase {
 
     func testTitle_shouldMatchTopicTitle() {
         let topic = Topic.make(title: "A title")
-        let sut = TopicViewModel(topic, library: MockMeditationLibrary())
+        let sut = TopicViewModel(topic, useCase: MockBrowseMeditationsUseCase())
         
         XCTAssertEqual(topic.title, sut.title)
     }
@@ -23,7 +23,7 @@ class TopicViewModelTests: XCTestCase {
     
     func testDescription_shouldMatchTopicDescription() {
         let topic = Topic.make(description: "A description")
-        let sut = TopicViewModel(topic, library: MockMeditationLibrary())
+        let sut = TopicViewModel(topic, useCase: MockBrowseMeditationsUseCase())
         
         XCTAssertEqual(topic.description, sut.description)
     }
@@ -33,7 +33,7 @@ class TopicViewModelTests: XCTestCase {
     func testMeditationSections_shouldIncludeSubtopicsAndGeneralMeditationsSection() {
         let subtopics = (0..<10).map { _ in Topic.make(meditations: [UUID()]) }
         let topic = Topic.make(subtopics: subtopics, meditations: [UUID()])
-        let sut = TopicViewModel(topic, library: MockMeditationLibrary())
+        let sut = TopicViewModel(topic, useCase: MockBrowseMeditationsUseCase())
         
         let sections = sut.meditationSections
         
@@ -46,7 +46,7 @@ class TopicViewModelTests: XCTestCase {
     
     func testMeditationSections_withNoSubtopics_shouldJustIncludeGeneralMeditationsSection() {
         let topic = Topic.make(meditations: [UUID()])
-        let sut = TopicViewModel(topic, library: MockMeditationLibrary())
+        let sut = TopicViewModel(topic, useCase: MockBrowseMeditationsUseCase())
         
         let sections = sut.meditationSections
         
@@ -57,7 +57,7 @@ class TopicViewModelTests: XCTestCase {
     func testMeditationSections_withNoMeditations_shouldJustIncludeSubtopicSections() {
         let subtopics = (0..<10).map { _ in Topic.make(meditations: [UUID()]) }
         let topic = Topic.make(subtopics: subtopics)
-        let sut = TopicViewModel(topic, library: MockMeditationLibrary())
+        let sut = TopicViewModel(topic, useCase: MockBrowseMeditationsUseCase())
         
         let sections = sut.meditationSections
         

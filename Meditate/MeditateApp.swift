@@ -12,7 +12,7 @@ struct MeditateApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                TopicListView(.init(library: MeditationLibrary(repo: TenPercentHappierMeditationRepository())))
+                TopicListView(.init(useCase: BrowseMeditationsUseCase(repo: TenPercentHappierMeditationRepository())))
             }
         }
     }

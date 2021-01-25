@@ -1,5 +1,5 @@
 //
-//  MeditationLibrary.swift
+//  BrowseMeditationsUseCase.swift
 //  Meditate
 //
 //  Created by Duff Neubauer on 1/24/21.
@@ -8,13 +8,13 @@
 import Combine
 import Foundation
 
-protocol IMeditationLibrary : class {
+protocol BrowseMeditationsUseCaseProtocol : class {
     var meditationTopics: AnyPublisher<[Topic], Error> { get }
     func loadMeditationTopics()
     func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error>
 }
 
-class MeditationLibrary : IMeditationLibrary {
+class BrowseMeditationsUseCase : BrowseMeditationsUseCaseProtocol {
     private let repo: MeditationRepository
     private var meditationTopicsSubject = CurrentValueSubject<[Topic], Error> ([])
     private var subscriptions = Set<AnyCancellable>()

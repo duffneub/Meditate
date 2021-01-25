@@ -142,7 +142,7 @@ class ImageLoader : ObservableObject {
 struct TopicView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TopicView(topic: .init(topic, library: FakeMeditationLibrary()))
+            TopicView(topic: .init(topic, useCase: FakeMeditationLibrary()))
         }
     }
     
@@ -181,7 +181,7 @@ struct TopicView_Previews: PreviewProvider {
         description: "A biologist predicts a population bomb that will lead to a global catastrophe. An economist sees a limitless future for mankind. The result is one of the most famous bets in economics.",
         parentID: nil)
     
-    class FakeMeditationLibrary : IMeditationLibrary {
+    class FakeMeditationLibrary : BrowseMeditationsUseCaseProtocol {
         private var topicsSubject = PassthroughSubject<[Topic], Error>()
         
         var meditationTopics: AnyPublisher<[Topic], Error> {

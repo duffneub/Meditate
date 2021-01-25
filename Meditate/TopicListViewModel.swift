@@ -9,39 +9,39 @@ import Combine
 import SwiftUI
 
 class TopicListViewModel : ObservableObject {
-    let library: IMeditationLibrary
+    private let useCase: BrowseMeditationsUseCaseProtocol
     private var subscriptions = Set<AnyCancellable>()
     @Published var topics: [TopicCard] = []
     
-    init(library: IMeditationLibrary) {
-        self.library = library
-        self.library.meditationTopics
+    init(useCase: BrowseMeditationsUseCaseProtocol) {
+        self.useCase = useCase
+        self.useCase.meditationTopics
             .receive(on: DispatchQueue.main)
             .replaceError(with: [])
-            .map { $0.map { TopicCard(topic: $0, library: library) } }
+            .map { $0.map { TopicCard(topic: $0, useCase: useCase) } }
             .assign(to: \.topics, on: self)
             .store(in: &subscriptions)
     }
     
     func loadMeditationTopics() {
-        library.loadMeditationTopics()
+        useCase.loadMeditationTopics()
     }
     
     class TopicCard : Identifiable {
         private let topic: Topic
-        private let library: IMeditationLibrary
+        private let useCase: BrowseMeditationsUseCaseProtocol
         
         var id: UUID {
             topic.id
         }
         
-        init(topic: Topic, library: IMeditationLibrary) {
+        init(topic: Topic, useCase: BrowseMeditationsUseCaseProtocol) {
             self.topic = topic
-            self.library = library
+            self.useCase = useCase
         }
         
         var destination: some View {
-            TopicView(topic: .init(topic, library: library))
+            TopicView(topic: .init(topic, useCase: useCase))
         }
         
         var color: Topic.Color {
