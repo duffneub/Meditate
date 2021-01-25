@@ -9,13 +9,14 @@ import Combine
 import SwiftUI
 
 class TopicListViewModel : ObservableObject {
-    private let library: IMeditationLibrary
+    let library: IMeditationLibrary
     private var subscriptions = Set<AnyCancellable>()
     @Published var topics: [Topic] = []
     
     init(library: IMeditationLibrary) {
         self.library = library
         self.library.meditationTopics
+            .receive(on: DispatchQueue.main)
             .replaceError(with: [])
             .assign(to: \.topics, on: self)
             .store(in: &subscriptions)

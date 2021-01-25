@@ -95,7 +95,8 @@ struct TopicView_Previews: PreviewProvider {
                 subtopics: [],
                 meditations: [UUID()],
                 color: .init(hex: "#000000"),
-                description: ""),
+                description: "",
+                parentID: nil),
             .init(
                 id: UUID(),
                 title: "Focus on Your Breath",
@@ -105,11 +106,13 @@ struct TopicView_Previews: PreviewProvider {
                 subtopics: [],
                 meditations: [UUID()],
                 color: .init(hex: "#000000"),
-                description: "")
+                description: "",
+                parentID: nil)
         ],
         meditations: [UUID()],
         color: .init(hex: "#000000"),
-        description: "A biologist predicts a population bomb that will lead to a global catastrophe. An economist sees a limitless future for mankind. The result is one of the most famous bets in economics.")
+        description: "A biologist predicts a population bomb that will lead to a global catastrophe. An economist sees a limitless future for mankind. The result is one of the most famous bets in economics.",
+        parentID: nil)
     
     class FakeMeditationLibrary : IMeditationLibrary {
         private var topicsSubject = PassthroughSubject<[Topic], Error>()

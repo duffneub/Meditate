@@ -8,11 +8,6 @@
 import Combine
 import Foundation
 
-protocol MeditationRepository {
-    func fetchMeditationTopics() -> AnyPublisher<[Topic], Error>
-    func fetchMeditations() -> AnyPublisher<[Meditation], Error>
-}
-
 protocol IMeditationLibrary {
     var meditationTopics: AnyPublisher<[Topic], Error> { get }
     func loadMeditationTopics()

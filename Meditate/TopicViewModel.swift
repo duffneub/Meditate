@@ -63,6 +63,7 @@ class TopicViewModel {
         
         func loadMeditations() {
             library.meditations(for: topic)
+                .receive(on: DispatchQueue.main)
                 .replaceError(with: [])
                 .assign(to: \.meditations, on: self)
                 .store(in: &subscriptions)

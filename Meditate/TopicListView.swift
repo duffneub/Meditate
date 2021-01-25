@@ -19,7 +19,7 @@ struct TopicListView : View {
         ScrollView(.vertical) {
             VStack() {
                 ForEach(viewModel.topics) { topic in
-                    TopicCardView(topic: topic)
+                    TopicCardView(topic: topic, library: viewModel.library)
                 }
             }
             .padding()
@@ -32,23 +32,26 @@ struct TopicListView : View {
 
     struct TopicCardView : View {
         let topic: Topic
+        let library: IMeditationLibrary
         
         var body : some View {
-            HStack {
-                Color(topic.color).frame(width: colorWidth)
-                VStack(alignment: .leading) {
-                    Text(topic.title)
-                        .font(.headline)
-                    Text("\(topic.totalNumberOfMeditations) Meditations")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+            NavigationLink(destination: TopicView.init(topic: .init(topic, library: library))) {
+                HStack {
+                    Color(topic.color).frame(width: colorWidth)
+                    VStack(alignment: .leading) {
+                        Text(topic.title)
+                            .font(.headline)
+                        Text("\(topic.totalNumberOfMeditations) Meditations")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical)
+                    Spacer()
                 }
-                .padding(.vertical)
-                Spacer()
+                .frame(maxWidth: .infinity)
+                .frame(height: height)
+                .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(borderColor, lineWidth: borderThickness))
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: height)
-            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(borderColor, lineWidth: borderThickness))
         }
         
         // MARK: - View Constants
@@ -108,7 +111,8 @@ struct TopicListView_Previews: PreviewProvider {
                     subtopics: [],
                     meditations: (0..<38).map { _ in UUID() },
                     color: tuple.1,
-                    description: "")
+                    description: "",
+                    parentID: nil)
             })
         }
         

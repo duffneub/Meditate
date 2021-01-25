@@ -13,10 +13,11 @@ struct Topic {
     let isFeatured: Bool
     var isSubtopic: Bool
     private let position: Int
-    let subtopics: [Topic]
+    var subtopics: [Topic]
     private let meditations: [UUID]
     let color: Color
     let description: String
+    let parentID: UUID?
     
     var totalNumberOfMeditations: Int {
         subtopics.map { $0.totalNumberOfMeditations }.reduce(meditations.count, +)
@@ -35,7 +36,8 @@ struct Topic {
         subtopics: [Topic],
         meditations: [UUID],
         color: Color,
-        description: String
+        description: String,
+        parentID: UUID?
     ) {
         self.id = id
         self.title = title
@@ -46,10 +48,15 @@ struct Topic {
         self.meditations = meditations
         self.color = color
         self.description = description
+        self.parentID = parentID
     }
     
     func includes(_ meditation: Meditation) -> Bool {
         meditations.contains(meditation.id)
+    }
+    
+    mutating func add(_ subtopic: Topic) {
+        subtopics.append(subtopic)
     }
     
     struct Color {

@@ -11,7 +11,9 @@ import SwiftUI
 struct MeditateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                TopicListView(.init(library: MeditationLibrary(repo: TenPercentHappierMeditationRepository())))
+            }
         }
     }
 }

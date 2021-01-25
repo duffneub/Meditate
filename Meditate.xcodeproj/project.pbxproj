@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */; };
-		17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE8925BDCCFE00B89560 /* ContentView.swift */; };
 		17C2EE8C25BDCD0000B89560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C2EE8B25BDCD0000B89560 /* Assets.xcassets */; };
 		17C2EE8F25BDCD0000B89560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C2EE8E25BDCD0000B89560 /* Preview Assets.xcassets */; };
 		17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE9925BDCD0000B89560 /* MeditateTests.swift */; };
@@ -28,6 +27,7 @@
 		17C2EEF825BE4E8F00B89560 /* TopicListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */; };
 		17C2EEFE25BE4F2800B89560 /* MockMeditationLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */; };
 		17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */; };
+		17C2EF1125BE5F6A00B89560 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 /* Begin PBXFileReference section */
 		17C2EE8425BDCCFE00B89560 /* Meditate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateApp.swift; sourceTree = "<group>"; };
-		17C2EE8925BDCCFE00B89560 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17C2EE8B25BDCD0000B89560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17C2EE8E25BDCD0000B89560 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17C2EE9025BDCD0000B89560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModelTests.swift; sourceTree = "<group>"; };
 		17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeditationLibrary.swift; sourceTree = "<group>"; };
 		17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModel.swift; sourceTree = "<group>"; };
+		17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,12 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */,
-				17C2EE8925BDCCFE00B89560 /* ContentView.swift */,
 				17C2EEC425BDE0C200B89560 /* TopicListView.swift */,
 				17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */,
 				17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */,
 				17C2EED325BE1ED400B89560 /* TopicView.swift */,
 				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
+				17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */,
 				17C2EECE25BE1CF700B89560 /* Topic.swift */,
 				17C2EED825BE2CAC00B89560 /* Meditation.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
@@ -316,8 +316,8 @@
 				17C2EECF25BE1CF700B89560 /* Topic.swift in Sources */,
 				17C2EEF325BE4B9500B89560 /* TopicViewModel.swift in Sources */,
 				17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */,
+				17C2EF1125BE5F6A00B89560 /* MeditationRepository.swift in Sources */,
 				17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */,
-				17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */,
 				17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */,
 				17C2EED925BE2CAC00B89560 /* Meditation.swift in Sources */,
 				17C2EEB625BDCE7F00B89560 /* MeditationLibrary.swift in Sources */,
