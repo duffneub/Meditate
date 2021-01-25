@@ -19,7 +19,7 @@ struct TopicListView : View {
         ScrollView(.vertical) {
             VStack() {
                 ForEach(viewModel.topics) { topic in
-                    TopicCardView(topic: topic, library: viewModel.library)
+                    TopicCardView(topic)
                 }
             }
             .padding()
@@ -31,11 +31,14 @@ struct TopicListView : View {
     }
 
     struct TopicCardView : View {
-        let topic: Topic
-        let library: IMeditationLibrary
+        private let topic: TopicListViewModel.TopicCard
+        
+        init(_ topic: TopicListViewModel.TopicCard) {
+            self.topic = topic
+        }
         
         var body : some View {
-            NavigationLink(destination: TopicView.init(topic: .init(topic, library: library))) {
+            NavigationLink(destination: topic.destination) {
                 HStack {
                     Color(topic.color).frame(width: colorWidth)
                     VStack(alignment: .leading) {
@@ -73,6 +76,8 @@ extension Color {
             blue: Double(topicColor.blue) / 255.0)
     }
 }
+
+// MARK: - Preview
 
 struct TopicListView_Previews: PreviewProvider {
     static var previews: some View {

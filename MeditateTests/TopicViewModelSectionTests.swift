@@ -9,9 +9,8 @@ import Combine
 import XCTest
 @testable import Meditate
 
-class TopicViewModelSectionTests: XCTestCase {
+class TopicViewModelSectionTests: CombineTestCase {
     private let library = MockMeditationLibrary()
-    private var subscriptions = Set<AnyCancellable>()
 
     func testTitle_shouldMatchTopicTitle() {
         let topic = Topic.make(title: "A title")
@@ -35,32 +34,6 @@ class TopicViewModelSectionTests: XCTestCase {
         sut.loadMeditations()
         
         XCTAssertEqual(meditations, try await(sut.$meditations.dropFirst().eraseToAnyPublisher()))
-    }
-    
-    
-    // MARK: - Helper Methods
-    
-    private func await<Value, Failure : Error>(_ publisher: AnyPublisher<Value, Failure>) throws -> Value {
-        var expectation: XCTestExpectation? = self.expectation(description: "To receive values from Publisher")
-        var result: Result<Value, Failure>!
-        
-        var subscription: AnyCancellable?
-        let cancelSubscription: () -> Void = {
-            subscription?.cancel()
-            subscription = nil
-        }
-        
-        subscription = publisher.sink { _ in
-        } receiveValue: { value in
-            result = .success(value)
-            expectation?.fulfill()
-            expectation = nil
-            cancelSubscription()
-        }
-        
-        waitForExpectations(timeout: 1.0)
-        
-        return try result.get()
     }
     
 }

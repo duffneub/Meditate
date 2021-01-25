@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-protocol IMeditationLibrary {
+protocol IMeditationLibrary : class {
     var meditationTopics: AnyPublisher<[Topic], Error> { get }
     func loadMeditationTopics()
     func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error>

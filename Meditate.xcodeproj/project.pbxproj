@@ -28,6 +28,7 @@
 		17C2EEFE25BE4F2800B89560 /* MockMeditationLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */; };
 		17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */; };
 		17C2EF1125BE5F6A00B89560 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */; };
+		17C2EF1725BE69A600B89560 /* CombineTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF1625BE69A600B89560 /* CombineTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeditationLibrary.swift; sourceTree = "<group>"; };
 		17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModel.swift; sourceTree = "<group>"; };
 		17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
+		17C2EF1625BE69A600B89560 /* CombineTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +130,12 @@
 				17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */,
 				17C2EEC425BDE0C200B89560 /* TopicListView.swift */,
 				17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */,
-				17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */,
 				17C2EED325BE1ED400B89560 /* TopicView.swift */,
+				17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */,
 				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
-				17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */,
 				17C2EECE25BE1CF700B89560 /* Topic.swift */,
 				17C2EED825BE2CAC00B89560 /* Meditation.swift */,
+				17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
 				17C2EE9025BDCD0000B89560 /* Info.plist */,
 				17C2EE8D25BDCD0000B89560 /* Preview Content */,
@@ -158,8 +160,7 @@
 				17C2EEE225BE3A1700B89560 /* TopicViewModelTests.swift */,
 				17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */,
 				17C2EEEA25BE403300B89560 /* TopicViewModelSectionTests.swift */,
-				17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */,
-				17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */,
+				17C2EF1525BE697300B89560 /* Test Helpers */,
 				17C2EEFC25BE4F1400B89560 /* Test Doubles */,
 				17C2EE9B25BDCD0000B89560 /* Info.plist */,
 			);
@@ -181,6 +182,16 @@
 				17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */,
 			);
 			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
+		17C2EF1525BE697300B89560 /* Test Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */,
+				17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */,
+				17C2EF1625BE69A600B89560 /* CombineTestCase.swift */,
+			);
+			path = "Test Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +342,7 @@
 				17C2EEC025BDDF9300B89560 /* Topic+TestHelpers.swift in Sources */,
 				17C2EECA25BE13D900B89560 /* ColorTests.swift in Sources */,
 				17C2EEF825BE4E8F00B89560 /* TopicListViewModelTests.swift in Sources */,
+				17C2EF1725BE69A600B89560 /* CombineTestCase.swift in Sources */,
 				17C2EEFE25BE4F2800B89560 /* MockMeditationLibrary.swift in Sources */,
 				17C2EEE325BE3A1700B89560 /* TopicViewModelTests.swift in Sources */,
 				17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */,

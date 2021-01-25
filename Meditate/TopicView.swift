@@ -31,10 +31,21 @@ struct TopicView: View {
         
         var body: some View {
             VStack(alignment: .leading) {
-                Text(section.title).font(.title2)
-                VStack(alignment: .leading) {
-                    ForEach(section.meditations) { meditation in
-                        MeditationCardView(meditation)
+                HStack {
+                    Text(section.title).font(.title2)
+                    Spacer()
+                }
+                if !section.meditations.isEmpty {
+                    VStack(alignment: .leading) {
+                        ForEach(section.meditations) { meditation in
+                            MeditationCardView(meditation)
+                        }
+                    }
+                } else {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
                     }
                 }
             }
@@ -64,8 +75,12 @@ struct TopicView: View {
                     }
                     Spacer()
                 }
-                .frame(height: 50)
+                .frame(height: height)
             }
+            
+            // MARK: - View Constants
+            
+            private let height: CGFloat = 50
         }
         
         struct Thumbnail : View {
@@ -82,12 +97,12 @@ struct TopicView: View {
                     if imageLoader.image == nil {
                         Color.secondary
                             .aspectRatio(contentMode: .fit)
-                            .cornerRadius(6)
+                            .cornerRadius(cornerRadius)
                     } else if location != nil {
                         Image(uiImage: imageLoader.image!)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .cornerRadius(6)
+                            .cornerRadius(cornerRadius)
                     }
                 }.onAppear {
                     if location != nil {
@@ -95,6 +110,10 @@ struct TopicView: View {
                     }
                 }
             }
+            
+            // MARK: - View Constants
+            
+            private let cornerRadius: CGFloat = 6
         }
     }
 }
@@ -117,6 +136,8 @@ class ImageLoader : ObservableObject {
             .assign(to: \.image, on: self)
     }
 }
+
+// MARK: - Preview
 
 struct TopicView_Previews: PreviewProvider {
     static var previews: some View {

@@ -9,17 +9,12 @@ import Combine
 import XCTest
 @testable import Meditate
 
-class MeditateTests: XCTestCase {
+class MeditateTests: CombineTestCase {
     private let repo = MockMeditationRepo()
     private var sut: MeditationLibrary!
-    private var subscriptions = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
         sut = MeditationLibrary(repo: repo)
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     // MARK: - Get Meditation Topics
@@ -87,32 +82,6 @@ class MeditateTests: XCTestCase {
         
         let topic = Topic.make(meditations: [second, third, first].map { $0.id })
         XCTAssertEqual([first, second, third], try await(sut.meditations(for: topic)))
-    }
-    
-    
-    // MARK: - Helper Methods
-    
-    private func await<Value, Failure : Error>(_ publisher: AnyPublisher<Value, Failure>) throws -> Value {
-        var expectation: XCTestExpectation? = self.expectation(description: "To receive values from Publisher")
-        var result: Result<Value, Failure>!
-        
-        var subscription: AnyCancellable?
-        let cancelSubscription: () -> Void = {
-            subscription?.cancel()
-            subscription = nil
-        }
-        
-        subscription = publisher.sink { _ in
-        } receiveValue: { value in
-            result = .success(value)
-            expectation?.fulfill()
-            expectation = nil
-            cancelSubscription()
-        }
-        
-        waitForExpectations(timeout: 1.0)
-        
-        return try result.get()
     }
 
 }
