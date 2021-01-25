@@ -30,7 +30,7 @@ class MeditateTests: XCTestCase {
         let featuredSubtopic = Topic.make(isFeatured: true, isSubtopic: true)
         let featuredTopLevel = Topic.make(isFeatured: true)
         repo.fetchMeditationsTopicResult = .success([topLevel, subtopic, featuredSubtopic, featuredTopLevel])
-        
+
         sut.loadMeditationTopics()
         let topics = try await(sut.meditationTopics)
 
@@ -41,12 +41,12 @@ class MeditateTests: XCTestCase {
         let first = Topic.make(position: 1)
         let second = Topic.make(position: 2)
         let third = Topic.make(position: 3)
-        
+
         repo.fetchMeditationsTopicResult = .success([second, third, first])
-        
+
         sut.loadMeditationTopics()
         let topics = try await(sut.meditationTopics)
-        
+
         XCTAssertEqual(first, topics[0])
         XCTAssertEqual(second, topics[1])
         XCTAssertEqual(third, topics[2])
@@ -93,7 +93,7 @@ class MeditateTests: XCTestCase {
     // MARK: - Helper Methods
     
     private func await<Value, Failure : Error>(_ publisher: AnyPublisher<Value, Failure>) throws -> Value {
-        let expectation = self.expectation(description: "To receive values from Publisher")
+        var expectation: XCTestExpectation? = self.expectation(description: "To receive values from Publisher")
         var result: Result<Value, Failure>!
         
         var subscription: AnyCancellable?
@@ -105,7 +105,8 @@ class MeditateTests: XCTestCase {
         subscription = publisher.sink { _ in
         } receiveValue: { value in
             result = .success(value)
-            expectation.fulfill()
+            expectation?.fulfill()
+            expectation = nil
             cancelSubscription()
         }
         

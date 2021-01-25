@@ -41,7 +41,7 @@ class TopicViewModelSectionTests: XCTestCase {
     // MARK: - Helper Methods
     
     private func await<Value, Failure : Error>(_ publisher: AnyPublisher<Value, Failure>) throws -> Value {
-        let expectation = self.expectation(description: "To receive values from Publisher")
+        var expectation: XCTestExpectation? = self.expectation(description: "To receive values from Publisher")
         var result: Result<Value, Failure>!
         
         var subscription: AnyCancellable?
@@ -53,7 +53,8 @@ class TopicViewModelSectionTests: XCTestCase {
         subscription = publisher.sink { _ in
         } receiveValue: { value in
             result = .success(value)
-            expectation.fulfill()
+            expectation?.fulfill()
+            expectation = nil
             cancelSubscription()
         }
         

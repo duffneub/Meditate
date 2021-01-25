@@ -54,9 +54,7 @@ struct TopicView: View {
             
             var body: some View {
                 HStack {
-                    Color.blue
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(6)
+                    Thumbnail(meditation.image)
                     VStack(alignment: .leading) {
                         Text(meditation.title)
                             .font(.headline)
@@ -69,6 +67,54 @@ struct TopicView: View {
                 .frame(height: 50)
             }
         }
+        
+        struct Thumbnail : View {
+            private let location: URL?
+            @ObservedObject var imageLoader: ImageLoader
+            
+            init(_ location: URL?) {
+                self.location = location
+                imageLoader = ImageLoader()
+            }
+            
+            var body: some View {
+                Group {
+                    if imageLoader.image == nil {
+                        Color.secondary
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(6)
+                    } else if location != nil {
+                        Image(uiImage: imageLoader.image!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(6)
+                    }
+                }.onAppear {
+                    if location != nil {
+                        imageLoader.loadImage(at: location!)
+                    }
+                }
+            }
+        }
+    }
+}
+
+class ImageLoader : ObservableObject {
+    private var subscription: AnyCancellable?
+    @Published var image: UIImage?
+    
+    func loadImage(at url: URL) {
+        guard subscription == nil else {
+            return
+        }
+        subscription = URLSession.shared.dataTaskPublisher(for: url)
+            .map { data, _ in
+                return data
+            }
+            .map { UIImage(data: $0) }
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.image, on: self)
     }
 }
 
@@ -126,11 +172,16 @@ struct TopicView_Previews: PreviewProvider {
         
         func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error> {
             let result: [Meditation] = [
-                .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 5),
-                .init(id: UUID(), title: "Biceps Curl for Your Brain", teacher: "Sharon Salzberg", playCount: 4),
-                .init(id: UUID(), title: "Winding Down for Sleep", teacher: "Alexis Santos", playCount: 3),
-                .init(id: UUID(), title: "Investigating Patterns", teacher: "Anushka Fernandopulle", playCount: 2),
-                .init(id: UUID(), title: "Before the Day Begins", teacher: "Joseph Goldstein", playCount: 1),
+                .init(
+                    id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", image: nil, playCount: 5),
+                .init(
+                    id: UUID(), title: "Biceps Curl for Your Brain", teacher: "Sharon Salzberg", image: nil, playCount: 4),
+                .init(
+                    id: UUID(), title: "Winding Down for Sleep", teacher: "Alexis Santos", image: nil, playCount: 3),
+                .init(
+                    id: UUID(), title: "Investigating Patterns", teacher: "Anushka Fernandopulle", image: nil, playCount: 2),
+                .init(
+                    id: UUID(), title: "Before the Day Begins", teacher: "Joseph Goldstein", image: nil, playCount: 1),
                 
             ]
             

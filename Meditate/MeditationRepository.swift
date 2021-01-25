@@ -104,17 +104,13 @@ extension Meditation : Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        do {
+        let image = try values.decode(String?.self, forKey: .image).map { URL(string: $0)! }
         
         self.init(
             id: UUID(uuidString: try values.decode(String.self, forKey: .id))!,
             title: try values.decode(String.self, forKey: .title),
             teacher: try values.decode(String.self, forKey: .teacher),
+            image: image,
             playCount: (try values.decode(Int?.self, forKey: .playCount)) ?? 0)
-        } catch {
-            print(error)
-            throw error
-        }
     }
 }

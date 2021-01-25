@@ -13,12 +13,14 @@ extension Meditation {
         id: UUID = UUID(),
         title: String = "",
         teacher: String = "",
+        image: URL? = nil,
         playCount: Int = 0
     ) -> Meditation {
         .init(
             id: id,
             title: title,
             teacher: teacher,
+            image: image,
             playCount: playCount)
     }
 }
