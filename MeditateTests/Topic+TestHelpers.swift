@@ -17,7 +17,8 @@ extension Topic {
         position: Int = 0,
         subtopics: [Topic] = [],
         meditations: [UUID] = [],
-        color: Color = .init(hex: "#000000")
+        color: Color = .init(hex: "#000000"),
+        description: String = ""
     ) -> Topic {
         .init(
             id: id,
@@ -27,6 +28,7 @@ extension Topic {
             position: position,
             subtopics: subtopics,
             meditations: meditations,
-            color: color)
+            color: color,
+            description: description)
     }
 }

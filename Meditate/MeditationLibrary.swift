@@ -13,7 +13,11 @@ protocol MeditationRepository {
     func fetchMeditations() -> AnyPublisher<[Meditation], Error>
 }
 
-class MeditationLibrary {
+protocol IMeditationLibrary {
+    func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error>
+}
+
+class MeditationLibrary : IMeditationLibrary {
     private let repo: MeditationRepository
     private var meditationTopicsSubject = CurrentValueSubject<[Topic], Error> ([])
     private var subscriptions = Set<AnyCancellable>()

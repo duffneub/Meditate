@@ -32,7 +32,7 @@ struct TopicCardView : View {
             VStack(alignment: .leading) {
                 Text(topic.title)
                     .font(.headline)
-                Text("\(topic.numberOfMeditations) Meditations")
+                Text("\(topic.totalNumberOfMeditations) Meditations")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -85,7 +85,9 @@ struct TopicListView_Previews: PreviewProvider {
             position: position,
             subtopics: [],
             meditations: (0..<38).map { _ in UUID() },
-            color: tuple.1)}
+            color: tuple.1,
+            description: "")
+    }
 
     static var previews: some View {
         NavigationView {
