@@ -20,7 +20,8 @@ class TopicListViewModelTests: XCTestCase {
         
         sut.loadMeditationTopics()
         
-        XCTAssertEqual(topics, try await(sut.$topics.eraseToAnyPublisher()))
+        XCTAssertTrue(library.didLoadMeditationTopics)
+        XCTAssertEqual(topics, try await(sut.$topics.dropFirst().eraseToAnyPublisher()))
     }
     
     // MARK: - Helper Methods

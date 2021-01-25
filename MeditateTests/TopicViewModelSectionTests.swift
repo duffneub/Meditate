@@ -34,7 +34,7 @@ class TopicViewModelSectionTests: XCTestCase {
         let sut = TopicViewModel.Section(topic, library: library)
         sut.loadMeditations()
         
-        XCTAssertEqual(meditations, try await(sut.$meditations.eraseToAnyPublisher()))
+        XCTAssertEqual(meditations, try await(sut.$meditations.dropFirst().eraseToAnyPublisher()))
     }
     
     
