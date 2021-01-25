@@ -63,21 +63,3 @@ class TopicViewModelSectionTests: XCTestCase {
     }
     
 }
-
-class MockMeditationLibrary : IMeditationLibrary {
-    private var topicMeditationsResults: [UUID: Result<[Meditation], Error>] = [:]
-    
-    // MARK: - IMeditationLibrary
-
-    func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error> {
-        Future { promise in
-            promise(self.topicMeditationsResults[topic.id]!)
-        }.eraseToAnyPublisher()
-    }
-    
-    // MARK: - Helpers
-    
-    func setMeditations(for topic: Topic, to result: Result<[Meditation], Error>) {
-        topicMeditationsResults[topic.id] = result
-    }
-}

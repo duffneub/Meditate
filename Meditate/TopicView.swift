@@ -112,6 +112,15 @@ struct TopicView_Previews: PreviewProvider {
         description: "A biologist predicts a population bomb that will lead to a global catastrophe. An economist sees a limitless future for mankind. The result is one of the most famous bets in economics.")
     
     class FakeMeditationLibrary : IMeditationLibrary {
+        private var topicsSubject = PassthroughSubject<[Topic], Error>()
+        
+        var meditationTopics: AnyPublisher<[Topic], Error> {
+            topicsSubject.eraseToAnyPublisher()
+        }
+        
+        func loadMeditationTopics() {
+        }
+        
         func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error> {
             let result: [Meditation] = [
                 .init(id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", playCount: 5),

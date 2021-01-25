@@ -14,6 +14,8 @@ protocol MeditationRepository {
 }
 
 protocol IMeditationLibrary {
+    var meditationTopics: AnyPublisher<[Topic], Error> { get }
+    func loadMeditationTopics()
     func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error>
 }
 

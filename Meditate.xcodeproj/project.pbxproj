@@ -25,6 +25,9 @@
 		17C2EEE325BE3A1700B89560 /* TopicViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEE225BE3A1700B89560 /* TopicViewModelTests.swift */; };
 		17C2EEEB25BE403300B89560 /* TopicViewModelSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEEA25BE403300B89560 /* TopicViewModelSectionTests.swift */; };
 		17C2EEF325BE4B9500B89560 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */; };
+		17C2EEF825BE4E8F00B89560 /* TopicListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */; };
+		17C2EEFE25BE4F2800B89560 /* MockMeditationLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */; };
+		17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		17C2EEE225BE3A1700B89560 /* TopicViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModelTests.swift; sourceTree = "<group>"; };
 		17C2EEEA25BE403300B89560 /* TopicViewModelSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModelSectionTests.swift; sourceTree = "<group>"; };
 		17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
+		17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModelTests.swift; sourceTree = "<group>"; };
+		17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMeditationLibrary.swift; sourceTree = "<group>"; };
+		17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +128,9 @@
 				17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */,
 				17C2EE8925BDCCFE00B89560 /* ContentView.swift */,
 				17C2EEC425BDE0C200B89560 /* TopicListView.swift */,
-				17C2EED325BE1ED400B89560 /* TopicView.swift */,
+				17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */,
 				17C2EEF225BE4B9500B89560 /* TopicViewModel.swift */,
+				17C2EED325BE1ED400B89560 /* TopicView.swift */,
 				17C2EEB525BDCE7F00B89560 /* MeditationLibrary.swift */,
 				17C2EECE25BE1CF700B89560 /* Topic.swift */,
 				17C2EED825BE2CAC00B89560 /* Meditation.swift */,
@@ -149,9 +156,11 @@
 				17C2EEBA25BDDB7400B89560 /* TopicTests.swift */,
 				17C2EEC925BE13D900B89560 /* ColorTests.swift */,
 				17C2EEE225BE3A1700B89560 /* TopicViewModelTests.swift */,
+				17C2EEF725BE4E8F00B89560 /* TopicListViewModelTests.swift */,
 				17C2EEEA25BE403300B89560 /* TopicViewModelSectionTests.swift */,
 				17C2EEBF25BDDF9300B89560 /* Topic+TestHelpers.swift */,
 				17C2EEDD25BE2CDA00B89560 /* Meditation+TestHelpers.swift */,
+				17C2EEFC25BE4F1400B89560 /* Test Doubles */,
 				17C2EE9B25BDCD0000B89560 /* Info.plist */,
 			);
 			path = MeditateTests;
@@ -164,6 +173,14 @@
 				17C2EEA625BDCD0000B89560 /* Info.plist */,
 			);
 			path = MeditateUITests;
+			sourceTree = "<group>";
+		};
+		17C2EEFC25BE4F1400B89560 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				17C2EEFD25BE4F2800B89560 /* MockMeditationLibrary.swift */,
+			);
+			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +316,7 @@
 				17C2EECF25BE1CF700B89560 /* Topic.swift in Sources */,
 				17C2EEF325BE4B9500B89560 /* TopicViewModel.swift in Sources */,
 				17C2EED425BE1ED400B89560 /* TopicView.swift in Sources */,
+				17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */,
 				17C2EE8A25BDCCFE00B89560 /* ContentView.swift in Sources */,
 				17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */,
 				17C2EED925BE2CAC00B89560 /* Meditation.swift in Sources */,
@@ -312,6 +330,8 @@
 			files = (
 				17C2EEC025BDDF9300B89560 /* Topic+TestHelpers.swift in Sources */,
 				17C2EECA25BE13D900B89560 /* ColorTests.swift in Sources */,
+				17C2EEF825BE4E8F00B89560 /* TopicListViewModelTests.swift in Sources */,
+				17C2EEFE25BE4F2800B89560 /* MockMeditationLibrary.swift in Sources */,
 				17C2EEE325BE3A1700B89560 /* TopicViewModelTests.swift in Sources */,
 				17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */,
 				17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */,
