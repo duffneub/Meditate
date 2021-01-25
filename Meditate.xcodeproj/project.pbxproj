@@ -10,7 +10,7 @@
 		17C2EE8825BDCCFE00B89560 /* MeditateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE8725BDCCFE00B89560 /* MeditateApp.swift */; };
 		17C2EE8C25BDCD0000B89560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C2EE8B25BDCD0000B89560 /* Assets.xcassets */; };
 		17C2EE8F25BDCD0000B89560 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C2EE8E25BDCD0000B89560 /* Preview Assets.xcassets */; };
-		17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE9925BDCD0000B89560 /* MeditateTests.swift */; };
+		17C2EE9A25BDCD0000B89560 /* BrowseMeditationsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EE9925BDCD0000B89560 /* BrowseMeditationsUseCaseTests.swift */; };
 		17C2EEA525BDCD0000B89560 /* MeditateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEA425BDCD0000B89560 /* MeditateUITests.swift */; };
 		17C2EEB625BDCE7F00B89560 /* BrowseMeditationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEB525BDCE7F00B89560 /* BrowseMeditationsUseCase.swift */; };
 		17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EEBA25BDDB7400B89560 /* TopicTests.swift */; };
@@ -55,7 +55,7 @@
 		17C2EE8E25BDCD0000B89560 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17C2EE9025BDCD0000B89560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C2EE9525BDCD0000B89560 /* MeditateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		17C2EE9925BDCD0000B89560 /* MeditateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTests.swift; sourceTree = "<group>"; };
+		17C2EE9925BDCD0000B89560 /* BrowseMeditationsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseMeditationsUseCaseTests.swift; sourceTree = "<group>"; };
 		17C2EE9B25BDCD0000B89560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C2EEA025BDCD0000B89560 /* MeditateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C2EEA425BDCD0000B89560 /* MeditateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateUITests.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		17C2EE9825BDCD0000B89560 /* MeditateTests */ = {
 			isa = PBXGroup;
 			children = (
-				17C2EE9925BDCD0000B89560 /* MeditateTests.swift */,
+				17C2EE9925BDCD0000B89560 /* BrowseMeditationsUseCaseTests.swift */,
 				17C2EEBA25BDDB7400B89560 /* TopicTests.swift */,
 				17C2EEC925BE13D900B89560 /* ColorTests.swift */,
 				17C2EEE225BE3A1700B89560 /* TopicViewModelTests.swift */,
@@ -345,7 +345,7 @@
 				17C2EF1725BE69A600B89560 /* CombineTestCase.swift in Sources */,
 				17C2EEFE25BE4F2800B89560 /* MockBrowseMeditationsUseCase.swift in Sources */,
 				17C2EEE325BE3A1700B89560 /* TopicViewModelTests.swift in Sources */,
-				17C2EE9A25BDCD0000B89560 /* MeditateTests.swift in Sources */,
+				17C2EE9A25BDCD0000B89560 /* BrowseMeditationsUseCaseTests.swift in Sources */,
 				17C2EEBB25BDDB7400B89560 /* TopicTests.swift in Sources */,
 				17C2EEDE25BE2CDA00B89560 /* Meditation+TestHelpers.swift in Sources */,
 				17C2EEEB25BE403300B89560 /* TopicViewModelSectionTests.swift in Sources */,
