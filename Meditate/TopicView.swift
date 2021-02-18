@@ -95,7 +95,7 @@ struct TopicView: View {
             var body: some View {
                 Group {
                     if imageLoader.image == nil {
-                        Color.secondary
+                        Color(UIColor.tertiarySystemFill)
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(cornerRadius)
                     } else if location != nil {
@@ -126,14 +126,30 @@ class ImageLoader : ObservableObject {
         guard subscription == nil else {
             return
         }
-        subscription = URLSession.shared.dataTaskPublisher(for: url)
-            .map { data, _ in
-                return data
+        
+        if useRemoteAPI {
+            subscription = URLSession.shared.dataTaskPublisher(for: url)
+                .map { data, _ in
+                    return data
+                }
+                .map { UIImage(data: $0) }
+                .replaceError(with: nil)
+                .receive(on: DispatchQueue.main)
+                .assign(to: \.image, on: self)
+        } else {
+            if let name = nameInAssetCatalog(url) {
+                image = UIImage(named: name)
             }
-            .map { UIImage(data: $0) }
-            .replaceError(with: nil)
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.image, on: self)
+        }
+    }
+    
+    private func nameInAssetCatalog(_ url: URL) -> String? {
+        let comps = url.absoluteString.components(separatedBy: "/")
+        guard comps.count == 8 else {
+            return nil
+        }
+        
+        return comps[6...7].joined(separator: "_")
     }
 }
 
@@ -194,15 +210,15 @@ struct TopicView_Previews: PreviewProvider {
         func meditations(for topic: Topic) -> AnyPublisher<[Meditation], Error> {
             let result: [Meditation] = [
                 .init(
-                    id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", image: nil, playCount: 5),
+                    id: UUID(), title: "Breathing to Release Pain", teacher: "Jeff Warren", image: nil, backgroundImage: nil, playCount: 5),
                 .init(
-                    id: UUID(), title: "Biceps Curl for Your Brain", teacher: "Sharon Salzberg", image: nil, playCount: 4),
+                    id: UUID(), title: "Biceps Curl for Your Brain", teacher: "Sharon Salzberg", image: nil, backgroundImage: nil, playCount: 4),
                 .init(
-                    id: UUID(), title: "Winding Down for Sleep", teacher: "Alexis Santos", image: nil, playCount: 3),
+                    id: UUID(), title: "Winding Down for Sleep", teacher: "Alexis Santos", image: nil, backgroundImage: nil, playCount: 3),
                 .init(
-                    id: UUID(), title: "Investigating Patterns", teacher: "Anushka Fernandopulle", image: nil, playCount: 2),
+                    id: UUID(), title: "Investigating Patterns", teacher: "Anushka Fernandopulle", image: nil, backgroundImage: nil, playCount: 2),
                 .init(
-                    id: UUID(), title: "Before the Day Begins", teacher: "Joseph Goldstein", image: nil, playCount: 1),
+                    id: UUID(), title: "Before the Day Begins", teacher: "Joseph Goldstein", image: nil, backgroundImage: nil, playCount: 1),
                 
             ]
             

@@ -14,6 +14,7 @@ extension Meditation {
         title: String = "",
         teacher: String = "",
         image: URL? = nil,
+        backgroundImage: URL? = nil,
         playCount: Int = 0
     ) -> Meditation {
         .init(
@@ -21,6 +22,7 @@ extension Meditation {
             title: title,
             teacher: teacher,
             image: image,
+            backgroundImage: backgroundImage,
             playCount: playCount)
     }
 }

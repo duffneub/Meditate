@@ -29,6 +29,8 @@
 		17C2EF0925BE52D100B89560 /* TopicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */; };
 		17C2EF1125BE5F6A00B89560 /* MeditationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */; };
 		17C2EF1725BE69A600B89560 /* CombineTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2EF1625BE69A600B89560 /* CombineTestCase.swift */; };
+		6874CDC025DEE604000315D4 /* topics.json in Resources */ = {isa = PBXBuildFile; fileRef = 6874CDBE25DEE604000315D4 /* topics.json */; };
+		6874CDC125DEE604000315D4 /* meditations.json in Resources */ = {isa = PBXBuildFile; fileRef = 6874CDBF25DEE604000315D4 /* meditations.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		17C2EF0825BE52D100B89560 /* TopicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewModel.swift; sourceTree = "<group>"; };
 		17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationRepository.swift; sourceTree = "<group>"; };
 		17C2EF1625BE69A600B89560 /* CombineTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTestCase.swift; sourceTree = "<group>"; };
+		6874CDBE25DEE604000315D4 /* topics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topics.json; sourceTree = "<group>"; };
+		6874CDBF25DEE604000315D4 /* meditations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meditations.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				17C2EF1025BE5F6A00B89560 /* MeditationRepository.swift */,
 				17C2EE8B25BDCD0000B89560 /* Assets.xcassets */,
 				17C2EE9025BDCD0000B89560 /* Info.plist */,
+				6874CDBF25DEE604000315D4 /* meditations.json */,
+				6874CDBE25DEE604000315D4 /* topics.json */,
 				17C2EE8D25BDCD0000B89560 /* Preview Content */,
 			);
 			path = Meditate;
@@ -298,6 +304,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C2EE8F25BDCD0000B89560 /* Preview Assets.xcassets in Resources */,
+				6874CDC125DEE604000315D4 /* meditations.json in Resources */,
+				6874CDC025DEE604000315D4 /* topics.json in Resources */,
 				17C2EE8C25BDCD0000B89560 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

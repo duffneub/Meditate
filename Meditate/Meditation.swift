@@ -12,13 +12,15 @@ struct Meditation : Identifiable {
     let title: String
     let teacher: String
     let image: URL?
+    let backgroundImage: URL?
     let playCount: Int
     
-    init(id: UUID, title: String, teacher: String, image: URL?, playCount: Int) {
+    init(id: UUID, title: String, teacher: String, image: URL?, backgroundImage: URL?, playCount: Int) {
         self.id = id
         self.title = title
         self.teacher = teacher
         self.image = image
+        self.backgroundImage = backgroundImage
         self.playCount = playCount
     }
 }

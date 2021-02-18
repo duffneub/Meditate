@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// By default, use cached json and images
+let useRemoteAPI = false
+
 @main
 struct MeditateApp: App {
     var body: some Scene {

@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-
 protocol MeditationRepository {
     func fetchMeditationTopics() -> AnyPublisher<[Topic], Error>
     func fetchMeditations() -> AnyPublisher<[Meditation], Error>
@@ -16,8 +15,16 @@ protocol MeditationRepository {
 
 class TenPercentHappierMeditationRepository : MeditationRepository {
     private let session = URLSession(configuration: .default)
-    private let topicsURL = URL(string: "https://tenpercent-interview-project.s3.amazonaws.com/topics.json")!
-    private let meditationsURL = URL(string: "https://tenpercent-interview-project.s3.amazonaws.com/meditations.json")!
+    private var topicsURL: URL {
+        useRemoteAPI ?
+            URL(string: "https://tenpercent-interview-project.s3.amazonaws.com/topics.json")! :
+            Bundle.main.url(forResource: "topics", withExtension: "json")!
+    }
+    private var meditationsURL: URL {
+        useRemoteAPI ?
+            URL(string: "https://tenpercent-interview-project.s3.amazonaws.com/meditations.json")! :
+            Bundle.main.url(forResource: "meditations", withExtension: "json")!
+}
     
     func fetchMeditationTopics() -> AnyPublisher<[Topic], Error> {
         struct Response : Decodable {
@@ -83,7 +90,7 @@ extension Topic : Decodable {
             id: UUID(uuidString: try values.decode(String.self, forKey: .id))!,
             title: try values.decode(String.self, forKey: .title),
             isFeatured: try values.decode(Bool.self, forKey: .featured),
-            isSubtopic: parentID == nil,
+            isSubtopic: parentID != nil,
             position: try values.decode(Int.self, forKey: .position),
             subtopics: [],
             meditations: (try values.decode([String].self, forKey: .meditations)).map { UUID(uuidString: $0)! },
@@ -100,17 +107,20 @@ extension Meditation : Decodable {
         case teacher = "teacher_name"
         case image = "image_url"
         case playCount = "play_count"
+        case backgroundImage = "background_image_url"
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let image = try values.decode(String?.self, forKey: .image).map { URL(string: $0)! }
+        let backgroundImage = try values.decode(String?.self, forKey: .backgroundImage).map { URL(string: $0)! }
         
         self.init(
             id: UUID(uuidString: try values.decode(String.self, forKey: .id))!,
             title: try values.decode(String.self, forKey: .title),
             teacher: try values.decode(String.self, forKey: .teacher),
             image: image,
+            backgroundImage: backgroundImage,
             playCount: (try values.decode(Int?.self, forKey: .playCount)) ?? 0)
     }
 }
