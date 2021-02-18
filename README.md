@@ -2,8 +2,8 @@
 
 iOS app to browse meditations by topic.
 
-<img src="Resources/topics_list.png" style="height: 500px">
-<img src="Resources/topic.png" style="height: 500px">
+![Topic List Screenshot](Resources/topics_list.png)
+![Topic Screenshot](Resources/topic.png)
 
 "Meditation" was completed during an take-home interview assignment and it's purpose is to showcase my work implementing various features available in most iOS apps: networking, filtering data, displaying data, navigation.
 
