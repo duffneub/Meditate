@@ -2,8 +2,9 @@
 
 iOS app to browse meditations by topic.
 
-![Topic List Screenshot](Resources/topics_list.png)
-![Topic Screenshot](Resources/topic.png)
+Topic List            |  Topic
+:-------------------------:|:-------------------------:
+![](Resources/topics_list.png)  |  ![](Resources/topic.png)
 
 "Meditation" was completed during an take-home interview assignment and it's purpose is to showcase my work implementing various features available in most iOS apps: networking, filtering data, displaying data, navigation.
 
@@ -12,7 +13,7 @@ I've cached the `json` and image files in the project in the case the network AP
 ### Features
 
 * Browse a list of meditations by topics
-* SwiftUI previews match mockups
+* SwiftUI previews to match mockups
 * Unit tested
 
 ### Implementation Details
